@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ushi na skara</title>
+    <script>
+        function loadMenu() {
+            fetch('../menu.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('menu-container').innerHTML = data;
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadMenu);
+    </script>
 </head>
 <body>
    <strong><h2>Стара селска рецепта за ценители! Върви с кана пивко вино и добра компания</h1></strong>

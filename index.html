@@ -5,6 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DpluG's recipes</title>
     <link rel="stylesheet" href="index.css">
+    <script>
+        function loadMenu() {
+            fetch('/menu.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('menu-container').innerHTML = data;
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadMenu);
+        
+        //add automatic slider
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+        showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length} ;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex-1].style.display = "block";
+        }
+    </script>
+    
 </head>
 <body>
     <h1 id="title">Dplug's Recipes</h1>
@@ -13,5 +44,10 @@
         <a href="recipes/tarator.html">Tarator</a>
         <a href="recipes/ushi.html">Ushi na skara</a>
     </div>
+    <img class="mySlides" src="recipes/musaka.jpg" width="460" height="320">
+    <img class="mySlides" src="recipes/ushi.jpg" width="460" height="320">
+    <img class="mySlides" src="recipes/tarator.jpg" width="460" height="320">
+    <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
 </body>
 </html>

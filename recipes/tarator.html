@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarator</title>
+    <script>
+        function loadMenu() {
+            fetch('../menu.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('menu-container').innerHTML = data;
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadMenu);
+    </script>
 </head>
 <body>
     <strong><h1>Таратор </h1></strong>
